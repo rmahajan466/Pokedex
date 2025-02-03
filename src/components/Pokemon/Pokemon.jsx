@@ -1,13 +1,17 @@
-import './Pokemon.css'
+// CSS
+import './Pokemon.css';
+import { Link } from 'react-router-dom';
 
-function Pokemon({ name, url }) {
+function Pokemon({ name, url, id }) {
     return (
-        <div className="pokemon">
-            <div className='pokemon-name'> {name.toUpperCase()} </div>
-            <div>
+        <Link to={`/pokemon/${id}`} className='pokemon-wrapper'>
+            <div className="pokemon">
+                <div className='pokemon-name'>
+                    {name.toUpperCase()}
+                </div>
                 <img className='pokemon-image' src={url} alt={name} />
             </div>
-        </div>
+        </Link>
     )
 }
 
