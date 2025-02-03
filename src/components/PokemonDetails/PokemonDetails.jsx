@@ -3,12 +3,13 @@ import "./PokemonDetails.css";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import usePokemon from "../../hooks/usePokemon";
+import Pokemon from "../Pokemon/Pokemon";
 
 function PokemonDetails() {
 
     const {id} = useParams();
 
-    const [pokemon] = usePokemon(id);
+    const [pokemon, pokemonListState] = usePokemon(id);
 
     return (
         <>
@@ -36,6 +37,14 @@ function PokemonDetails() {
                     <h1>Type:</h1> {pokemon.types.map(t => <span className="types-span" key={t.type.name}>{t.type.name}</span> )}
                 </div>
             </div>}
+                <div className="similar-pokemons">
+                    <h2> Similar Pokemons</h2>
+                    <div className="pokemon-similar-boxes">
+                        {pokemonListState.pokemonList.length > 0 &&
+                            pokemonListState.pokemonList.map(pokemon => <Pokemon name={pokemon.name} key={pokemon.id} url={pokemon.image} id ={pokemon.id} />)
+                        }
+                    </div>
+                </div>
         </>
     );
 }
