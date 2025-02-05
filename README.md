@@ -25,9 +25,8 @@ This project is a Pokedex application built with React for the frontend. It allo
     ```sh
     cd Pokedex
     ```
-3. Install the dependencies for the backend:
+3. Install the dependencies:
     ```sh
-    cd backend
     npm install
     ```
 
